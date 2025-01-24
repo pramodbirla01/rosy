@@ -40,11 +40,11 @@ const MobileNav = () => {
         {/* Logo in the center */}
         <div className="flex justify-center items-center flex-1">
           <Image
-            src="/images/nav/logo.webp"
+            src="/images/nav/logo.png"
             alt="Logo"
-            width={80}
-            height={40}
-            className="cursor-pointer"
+            width={400}
+            height={200}
+            className="cursor-pointer w-20 h-auto"
           />
         </div>
 

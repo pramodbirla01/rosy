@@ -75,11 +75,11 @@ const Nav = () => {
           {/* Logo */}
           <div className="flex items-center">
             <Image
-              src="/images/nav/logo.webp"
+              src="/images/nav/logo.png"
               alt="Logo"
               width={500}
               height={500}
-              className="cursor-pointer h-11 w-auto"
+              className="cursor-pointer h-14 w-auto"
             />
           </div>
 
