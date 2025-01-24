@@ -77,9 +77,9 @@ const Nav = () => {
             <Image
               src="/images/nav/logo.png"
               alt="Logo"
-              width={500}
-              height={500}
-              className="cursor-pointer h-14 w-auto"
+              width={200}
+              height={200}
+              className="cursor-pointer h-16 w-auto"
             />
           </div>
 

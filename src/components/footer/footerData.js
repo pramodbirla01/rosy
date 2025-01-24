@@ -29,9 +29,8 @@ export const footerData = [
     {
       heading: "Anvix",
       items: [
-        "Shopify is a dynamic and innovative online retail platform.",
-        "Fb",
-        "Tw",
+        "Set your vibe, Set your Aura",
+       
       ],
     },
   ];
