@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import Image from "next/image";
 const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -37,10 +37,12 @@ const Hero = () => {
   return (
     <div className="relative w-full h-[90vh] overflow-hidden">
       {heroData.map((data, index) => (
-        <img
+        <Image
           key={data.id}
           src={data.image}
           alt={`Hero ${data.id + 1}`}
+         width={2000}
+         height={2000}
           className={`absolute inset-0 object-cover w-full h-full transition-opacity duration-500 ease-in-out ${currentIndex === index ? 'opacity-100' : 'opacity-0'}`}
         />
       ))}

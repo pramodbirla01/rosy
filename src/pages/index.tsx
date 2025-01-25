@@ -9,12 +9,14 @@ import HomeCard from "@/components/home_card/HomeCard";
 import Quote_home from "@/components/home_quote/Quote_home";
 import Nav from "@/components/nav/Nav";
 import Review_home from "@/components/review/Review_home";
+import ShopPage from "@/components/shop/ShopPage";
 import Trending from "@/components/trending/Trending";
 import React from "react";
 
 export default function Home() {
   return (
     <>
+    
       <Nav />
       <Hero />
       <Category />
@@ -27,6 +29,7 @@ export default function Home() {
       <Review_home/>
       <Follow/>
       <Footer/>
+      
     </>
   );
 }
