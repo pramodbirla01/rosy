@@ -9,8 +9,8 @@ const MobileNav = () => {
     { name: "Shop", href: "/shop" },
     { name: "Product", href: "/product" },
     { name: "Blog", href: "/blog" },
-    { name: "Pages", href: "/pages" },
-    { name: "Buy Now", href: "/buy" },
+    { name: "about us", href: "/about" },
+    { name: "contact us", href: "/contact" },
   ];
 
   return (

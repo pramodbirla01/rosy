@@ -50,8 +50,8 @@ const Nav = () => {
     { name: "Shop", href: "/shop" },
     { name: "Product", href: "/product" },
     { name: "Blog", href: "/blog" },
-    { name: "Pages", href: "/pages" },
-    { name: "Buy Now", href: "/buy" },
+    { name: "About", href: "/about" },
+    { name: "Contact us", href: "/contact" },
   ];
 
   const currencies = [

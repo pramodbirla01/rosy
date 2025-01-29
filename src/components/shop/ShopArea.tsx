@@ -8,7 +8,7 @@ import ProductTypes from './ProductTypes';
 const ShopArea: React.FC = () => {
   return (
     <div>
-      <Breadcrumbs />
+      <Breadcrumbs page="Shop" />
       <Banner />
       <ProductTypes />
       <div className="flex">
