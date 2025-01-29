@@ -1,5 +1,7 @@
-import React from "react";
-import Image from "next/image";
+import React from 'react';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
+
 interface ProductProps {
   product: {
     id: number;
@@ -12,8 +14,14 @@ interface ProductProps {
 }
 
 const ProductCard: React.FC<ProductProps> = ({ product }) => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/shop/${product.id}`);
+  };
+
   return (
-    <div className="group relative overflow-hidden text-center">
+    <div className="group relative overflow-hidden text-center cursor-pointer" onClick={handleClick}>
       {/* Product Image with Hover Effect */}
       <div className="relative overflow-hidden">
         <Image
@@ -37,8 +45,8 @@ const ProductCard: React.FC<ProductProps> = ({ product }) => {
       {/* Product Details */}
       <div className="mt-3">
         <h3 className="text-gray-500 text-md">{product.brand}</h3>
-        <h4 className="text-xl ">{product.name}</h4>
-        <p className="mt-1 text-gray-700  ">${product.price.toFixed(2)}</p>
+        <h4 className="text-xl">{product.name}</h4>
+        <p className="mt-1 text-gray-700">${product.price.toFixed(2)}</p>
       </div>
     </div>
   );
