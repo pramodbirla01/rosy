@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-// Define CartItem interface
-interface CartItem {
+// Define and export CartItem interface
+export interface CartItem {
   id: number;
   name: string;
   price: number;
@@ -52,9 +52,18 @@ const cartSlice = createSlice({
         state.items.splice(itemIndex, 1);
       }
     },
+    updateQuantity(state, action: PayloadAction<{ id: number, size: string, color: string, quantity: number }>) {
+      const { id, size, color, quantity } = action.payload;
+      const item = state.items.find(
+        item => item.id === id && item.size === size && item.color === color
+      );
+      if (item) {
+        item.quantity = Math.max(1, quantity);
+      }
+    },
   },
 });
 
 // Export actions and reducer
-export const { addToCart, toggleCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, toggleCart, removeFromCart, updateQuantity } = cartSlice.actions;
 export default cartSlice.reducer;
