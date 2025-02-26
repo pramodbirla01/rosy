@@ -9,11 +9,37 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#1a1a1a',
-          hover: '#333333',
+        // Background Colors
+        bg: {
+          primary: '#FFFFFF',
+          secondary: '#F9FAFB',
+          overlay: 'rgba(0, 0, 0, 0.5)',
+          hover: '#F3F4F6'
         },
-        buttonRed: '#FF0000',
+        // Text Colors
+        text: {
+          primary: '#111827',
+          secondary: '#4B5563',
+          light: '#6B7280'
+        },
+        // Border Colors
+        border: {
+          light: '#E5E7EB',
+          main: '#D1D5DB'
+        },
+        // Button Colors
+        button: {
+          red: '#CC5500',
+          dark: '#111827'
+        },
+        // Gray Scale
+        gray: {
+          lightest: '#F9FAFB',
+          light: '#F3F4F6',
+          medium: '#E5E7EB',
+          dark: '#4B5563',
+          darkest: '#111827'
+        }
       },
       fontFamily: {
         sans: ["Jost", "Arial", "Helvetica", "sans-serif"],

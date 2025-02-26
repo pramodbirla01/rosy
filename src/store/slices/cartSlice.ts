@@ -44,12 +44,13 @@ const cartSlice = createSlice({
     },
     removeFromCart(state, action: PayloadAction<{ id: number, size: string, color: string }>) {
       const { id, size, color } = action.payload;
-      console.log('Removing item:', { id, size, color }); // Add debug log
-      console.log('Before removal:', state.items); // Add debug log
-      state.items = state.items.filter(
-        (item) => !(item.id === id && item.size === size && item.color === color)
+      const itemIndex = state.items.findIndex(
+        item => item.id === id && item.size === size && item.color === color
       );
-      console.log('After removal:', state.items); // Add debug log
+      
+      if (itemIndex > -1) {
+        state.items.splice(itemIndex, 1);
+      }
     },
   },
 });
