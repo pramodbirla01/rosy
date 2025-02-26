@@ -6,8 +6,7 @@ const MobileNav = () => {
 
   const navLinks = [
     { name: "Home", href: "/" },
-    { name: "Shop", href: "/shop" },
-    { name: "Product", href: "/product" },
+    { name: "Shop", href: "/shop" }, 
     { name: "Blog", href: "/blog" },
     { name: "about us", href: "/about" },
     { name: "contact us", href: "/contact" },

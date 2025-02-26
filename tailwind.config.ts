@@ -8,11 +8,19 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#1a1a1a',
+          hover: '#333333',
+        },
+        buttonRed: '#FF0000',
+      },
       fontFamily: {
         sans: ["Jost", "Arial", "Helvetica", "sans-serif"],
       },
       animation: {
         'slide-up': 'slide-up 0.5s ease-out forwards', // Add slide-up animation
+        'background-shine': 'background-shine 2s linear infinite',
       },
       keyframes: {
         'slide-up': {
@@ -25,6 +33,10 @@ export default {
             opacity: '1',
           },
         },
+        'background-shine': {
+          'from': { backgroundPosition: '0 0' },
+          'to': { backgroundPosition: '-200% 0' }
+        }
       },
     },
   },

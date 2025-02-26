@@ -1,13 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import MobileNav from "./MobileNav";
-
+import { useRouter } from "next/router";  
+import { RootState } from "@/store/store";
+import { useSelector } from "react-redux";
 const Nav = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
-
+const { items } = useSelector((state: RootState) => state.cart);
+  const itemCount = items.reduce((total, item) => total + item.quantity, 0);
+  const router = useRouter();
   // Detect screen width to toggle mobile view
   useEffect(() => {
     const handleResize = () => {
@@ -54,11 +58,6 @@ const Nav = () => {
     { name: "Contact us", href: "/contact" },
   ];
 
-  const currencies = [
-    { label: "USD ($)", value: "USD" },
-    { label: "Singapore ($)", value: "SGD" },
-    { label: "INR (₹)", value: "INR" },
-  ];
 
   const [selectedCurrency, setSelectedCurrency] = useState("USD");
 
@@ -95,23 +94,7 @@ const Nav = () => {
               </a>
             ))}
 
-            {/* Currency Dropdown */}
-            <div className="relative group">
-              <button className="hover:text-gray-600 transition">
-                {currencies.find((c) => c.value === selectedCurrency)?.label}
-              </button>
-              <div className="absolute hidden group-hover:block bg-white shadow-md rounded mt-2">
-                {currencies.map((currency, index) => (
-                  <button
-                    key={index}
-                    className="block px-4 py-2 hover:bg-gray-100 w-full text-left"
-                    onClick={() => setSelectedCurrency(currency.value)}
-                  >
-                    {currency.label}
-                  </button>
-                ))}
-              </div>
-            </div>
+           
 
             {/* Icons */}
             <div className="flex items-center space-x-4">
@@ -129,13 +112,21 @@ const Nav = () => {
                 height={20}
                 className="cursor-pointer"
               />
-              <Image
-                src="/images/nav/cart.svg"
-                alt="Cart"
-                width={25}
-                height={25}
-                className="cursor-pointer"
-              />
+              <div className="relative">
+      <Image
+        src="/images/nav/cart.svg"
+        alt="Cart"
+        width={50}
+        height={50}
+        className="cursor-pointer w-7"
+        onClick={() => router.push('/cart')}
+      />
+      {itemCount > 0 && (
+        <span className="absolute -top-1 -right-1 bg-white text-black border border-black font-thin text-xs rounded-full px-1">
+          {itemCount}
+        </span>
+      )}
+    </div>
             </div>
           </div>
         </div>
