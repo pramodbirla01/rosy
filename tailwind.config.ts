@@ -49,6 +49,7 @@ export default {
         'slide-up': 'slide-up 0.5s ease-out forwards', // Add slide-up animation
         'background-shine': 'background-shine 2s linear infinite',
         'button-hover': 'button-hover 0.3s ease-out forwards',
+        'button-fill': 'button-fill 0.3s ease-out forwards',
       },
       keyframes: {
         'slide-up': {
@@ -66,6 +67,16 @@ export default {
           'to': { backgroundPosition: '-200% 0' }
         },
         'button-hover': {
+          '0%': {
+            transform: 'scaleX(0)',
+            transformOrigin: 'left'
+          },
+          '100%': {
+            transform: 'scaleX(1)',
+            transformOrigin: 'left'
+          }
+        },
+        'button-fill': {
           '0%': {
             transform: 'scaleX(0)',
             transformOrigin: 'left'

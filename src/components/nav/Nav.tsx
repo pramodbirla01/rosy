@@ -4,14 +4,25 @@ import MobileNav from "./MobileNav";
 import { useRouter } from "next/router";  
 import { RootState } from "@/store/store";
 import { useSelector } from "react-redux";
+
 const Nav = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
-const { items } = useSelector((state: RootState) => state.cart);
+  const { items } = useSelector((state: RootState) => state.cart);
   const itemCount = items.reduce((total, item) => total + item.quantity, 0);
   const router = useRouter();
+  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('isLoggedIn') === 'true';
+
+  const handleProfileClick = () => {
+    if (isLoggedIn) {
+      router.push('/dashboard');
+    } else {
+      router.push('/auth/login');
+    }
+  };
+
   // Detect screen width to toggle mobile view
   useEffect(() => {
     const handleResize = () => {
@@ -111,6 +122,7 @@ const { items } = useSelector((state: RootState) => state.cart);
                 width={20}
                 height={20}
                 className="cursor-pointer"
+                onClick={handleProfileClick}
               />
               <div className="relative">
       <Image

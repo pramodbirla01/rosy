@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const MobileNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const isLoggedIn = typeof window !== 'undefined' && localStorage.getItem('isLoggedIn') === 'true';
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -10,7 +13,23 @@ const MobileNav = () => {
     { name: "Blog", href: "/blog" },
     { name: "about us", href: "/about" },
     { name: "contact us", href: "/contact" },
+    // Add auth links
+   
   ];
+
+  const handleLogout = () => {
+    localStorage.removeItem('isLoggedIn');
+    router.push('/auth/login');
+    setIsMenuOpen(false);
+  };
+
+  const handleProfileClick = () => {
+    if (isLoggedIn) {
+      router.push('/dashboard');
+    } else {
+      router.push('/auth/login');
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
@@ -55,6 +74,7 @@ const MobileNav = () => {
             width={20}
             height={20}
             className="cursor-pointer"
+            onClick={handleProfileClick}
           />
           <Image
             src="/images/nav/cart.svg"
@@ -92,6 +112,14 @@ const MobileNav = () => {
               {link.name}
             </a>
           ))}
+          {isLoggedIn && (
+            <button
+              onClick={handleLogout}
+              className="block text-gray-700 hover:text-gray-900 text-lg"
+            >
+              Logout
+            </button>
+          )}
         </div>
       </div>
 
