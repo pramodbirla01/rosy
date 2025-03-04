@@ -15,7 +15,7 @@ const userData = {
   ],
   recentActivity: [
     { id: 1, type: "order", status: "delivered", amount: 156.99, date: "2024-01-20" },
-    { id: 2, type: "order", status: "processing", amount: 89.99, date: "2024-01-18" },
+    { id: 2, type: "order", status: "processing", amount: 99.99, date: "2024-01-18" },
     { id: 3, type: "wishlist", item: "Leather Jacket", date: "2024-01-15" }
   ]
 };
