@@ -14,8 +14,8 @@ export default function DashAddForm({ isOpen, onClose, onSubmit }: AddressFormPr
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-      <div className="bg-white rounded-xl shadow-lg w-full max-w-lg mx-4 relative animate-slide-up">
+    <div className="fixed -top-10 inset-0 bg-black bg-opacity-50 z-[100] flex items-center justify-center">
+      <div className="bg-white rounded-xl shadow-lg w-full max-w-lg mx-4 relative animate-slide-up max-h-[90vh] overflow-y-auto">
         {/* Close Button */}
         <button 
           onClick={onClose}

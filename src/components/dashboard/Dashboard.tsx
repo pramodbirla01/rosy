@@ -27,12 +27,12 @@ export default function DashboardComponent() {
   };
 
   return (
-    <div className="min-h-screen bg-bg-light flex flex-col">
+    <div className="min-h-screen bg-bg-light flex flex-col relative">
       <Nav />
-      <div className="flex-grow flex mt-32 md:mt-24">
+      <div className="flex-grow flex mt-32 md:mt-24 relative">
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden fixed top-24 right-10 z-30 p-2 bg-white rounded-md shadow-md"
+          className="md:hidden fixed top-24 right-10 z-[60] p-2 bg-white rounded-md shadow-md"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         >
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -41,7 +41,7 @@ export default function DashboardComponent() {
         </button>
 
         {/* Sidebar */}
-        <div className={`fixed top-[0%] md:static inset-0 z-50 transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out`}>
+        <div className={`fixed top-0 md:static inset-0 z-[70] transform ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} md:translate-x-0 transition-transform duration-300 ease-in-out`}>
           <DashboardSidebar 
             activeTab={activeTab} 
             setActiveTab={setActiveTab}
@@ -50,14 +50,14 @@ export default function DashboardComponent() {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 p-4 md:p-8 bg-bg-light">
+        <div className="flex-1 p-4 md:p-8 bg-bg-light relative">
           {renderContent()}
         </div>
 
         {/* Overlay for mobile */}
         {isSidebarOpen && (
           <div 
-            className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden"
+            className="fixed inset-0 bg-black bg-opacity-50 z-[65] md:hidden"
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
