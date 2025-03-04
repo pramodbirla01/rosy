@@ -1,7 +1,6 @@
-import Register from '@/components/user/Register';
+import ForgotPassword from '@/components/user/ForgotPassword';
 
-
-export default function RegisterPage() {
+export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen flex flex-col relative">
       <div className="fixed inset-0 bg-bg-light">
@@ -14,9 +13,8 @@ export default function RegisterPage() {
              }}>
         </div>
       </div>
-     
-      <div className="flex-1 flex items-center justify-center  relative z-10">
-        <Register />
+      <div className="flex-1 flex items-center justify-center relative z-10">
+        <ForgotPassword />
       </div>
     </div>
   );
