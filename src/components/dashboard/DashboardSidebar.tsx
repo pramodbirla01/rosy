@@ -34,26 +34,60 @@ export default function DashboardSidebar({ activeTab, setActiveTab, closeSidebar
             <button
               key={item.id}
               onClick={() => handleTabClick(item.id)}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                activeTab === item.id ? 'bg-button-red text-white' : 'text-text-secondary hover:bg-bg-light'
-              }`}
+              className={`w-full flex items-center  px-4 py-3 rounded-e-lg transition-all duration-300 transform  relative overflow-hidden group
+                ${activeTab === item.id 
+                  ? 'bg-red-50 text-button-red' 
+                  : 'text-text-secondary hover:bg-bg-light'
+                }
+              `}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-                <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
-              </svg>
-              <span>{item.label}</span>
+              {/* Shine effect overlay */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:animate-background-shine opacity-20"></div>
+              
+              {/* Active indicator */}
+              <div className={`absolute left-0 top-0 h-full w-1 bg-button-red transform transition-transform duration-300 
+                ${activeTab === item.id ? 'scale-y-100' : 'scale-y-0'}`}
+              ></div>
+
+              {/* Icon */}
+              <div className={`transform transition-transform duration-300 ${activeTab === item.id ? 'scale-110' : ''}`}>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     className={`w-5 h-5 transition-colors duration-300 ${activeTab === item.id ? 'text-button-red' : 'text-gray-400'}`} 
+                     fill="none" 
+                     viewBox="0 0 24 24" 
+                     stroke="currentColor">
+                  <path strokeLinecap="round" 
+                        strokeLinejoin="round" 
+                        strokeWidth={2} 
+                        d={item.icon} />
+                </svg>
+              </div>
+
+              {/* Label */}
+              <span className="relative z-10">{item.label}</span>
             </button>
           ))}
         </div>
         
+        {/* Logout button with similar effects */}
         <button
           onClick={handleLogout}
-          className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-text-secondary hover:bg-bg-light transition-colors"
+          className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-text-secondary hover:bg-bg-light transition-all duration-300 transform hover:translate-x-1 relative overflow-hidden group"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+          {/* Shine effect overlay */}
+          <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:animate-background-shine opacity-20"></div>
+          
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               className="w-5 h-5 text-gray-400 group-hover:text-button-red transition-colors duration-300" 
+               fill="none" 
+               viewBox="0 0 24 24" 
+               stroke="currentColor">
+            <path strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
           </svg>
-          <span>Logout</span>
+          <span className="relative z-10">Logout</span>
         </button>
       </div>
     </div>
